@@ -646,6 +646,18 @@
       .catch(function (e) { $('#ids-out').textContent = 'Չհասավ․ ' + e.message + ' (տնատերը գրե՞լ է /start)'; });
   });
 
+  /* ---------- hidden access to settings: tap any logo 5 times ---------- */
+  var taps = 0, tapTimer;
+  document.addEventListener('click', function (ev) {
+    var b = ev.target.closest('.brand');
+    if (!b) return;
+    ev.preventDefault();
+    taps++;
+    clearTimeout(tapTimer);
+    tapTimer = setTimeout(function () { taps = 0; }, 1500);
+    if (taps >= 5) { taps = 0; show('setup', true); }
+  });
+
   /* ---------- boot ---------- */
   setLang(lang);
   if (location.hash === '#setup') show('setup');
