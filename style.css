@@ -395,6 +395,30 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 2
 .screen.enter { animation: screenIn .35s var(--ease) both; }
 @keyframes screenIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 
+
+/* ---------- how it works & footer ---------- */
+.how { padding: 34px 20px 8px; }
+.how h2 { margin: 0 0 18px; font-family: var(--serif); font-size: 24px; line-height: 1.25; }
+.how__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 18px; }
+.how__list li { display: flex; gap: 14px; align-items: flex-start; }
+.how__list b {
+  flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--ink); color: var(--stone); font-size: 15px;
+}
+.how__list li:first-child b { background: var(--tuff); color: #FFFFFF; }
+.how__list h3 { margin: 4px 0 2px; font-size: 16px; font-weight: 600; }
+.how__list p { margin: 0; font-size: 14px; color: var(--muted); }
+.foot {
+  margin-top: 30px;
+  padding: 28px 20px calc(28px + var(--safe-b));
+  background: var(--ink); color: #CFC8BB;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.foot .brand { color: var(--stone); margin-bottom: 6px; }
+.foot p { margin: 0; font-size: 13px; }
+.foot__credit, .foot__copy { color: #A39B8F; font-size: 12px !important; }
+
 @media (min-width: 560px) {
   body { padding: 24px 0; }
   .app { border-radius: 28px; overflow: clip; min-height: calc(100vh - 48px); box-shadow: 0 30px 80px rgba(0,0,0,.35); }

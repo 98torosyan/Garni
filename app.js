@@ -334,7 +334,7 @@
     var sim = matched.filter(function (h) { return real.indexOf(h) === -1; });
 
     sim.forEach(function (h, i) {
-      a.timers.push(setTimeout(function () { answer(a, h.id, true); }, 2600 + i * 3800 + Math.random() * 1400));
+      a.timers.push(setTimeout(function () { answer(a, h.id, true); }, 4000 + i * 4500 + Math.random() * 2000));
     });
 
     if (real.length) {
@@ -349,7 +349,7 @@
               { text: '❌ Զբաղված եմ', callback_data: 'd:' + req.id + ':' + h.id }
             ]] })
           }).then(function (m) { a.sent[h.id] = m.message_id; })
-            .catch(function (e) { console.warn('[Ազատ է] could not reach', h.id, e.message); });
+            .catch(function (e) { console.warn('Telegram: could not reach', h.id, e.message); });
         }));
       }).then(function () { poll(a, ids); });
     }
@@ -498,7 +498,7 @@
     var allDone = total > 0 && a.matched.every(function (h) { return a.answered[h.id] || a.declined[h.id]; });
 
     $('#status-dot').classList.toggle('is-off', a.closed);
-    $('#status-state').textContent = a.closed ? t('closed') : t('live');
+    $('#status-state').textContent = allDone ? t('allIn') : (a.closed ? t('closed') : t('live'));
     $('#status-title').textContent = t('answered', count);
     $('#status-text').textContent = allDone ? t('sentDone') : t('sentTo', total);
     $('#status-count').textContent = total ? count + ' / ' + total : '';
@@ -552,8 +552,8 @@
     var ids = chatIds();
     var linked = HOUSES.filter(function (h) { return ids[h.id]; }).length;
     $('#setup-mode').textContent = token && linked
-      ? 'Իրական․ հայտերը կգնան Telegram-ով (' + linked + ' / ' + HOUSES.length + ' տուն միացված է)։ Չմիացված տները կպատասխանեն ավտոմատ։'
-      : 'Սիմուլյացիա․ տները պատասխանում են ավտոմատ։ Իրականի համար մուտքագրիր token և ID-ներ։';
+      ? 'Միացված է․ հայտերը գնում են Telegram-ով (' + linked + ' / ' + HOUSES.length + ' տուն)։'
+      : 'Telegram-ը միացված չէ։ Մուտքագրիր token-ը և տնատերերի ID-ները։';
 
     var people = Object.keys(found).map(function (k) { return found[k]; });
     $('#owner-fields').innerHTML = HOUSES.map(function (h) {
@@ -564,7 +564,7 @@
       return '<div class="owner">' +
         '<p class="owner__name">' + esc(h.name.hy) + ' · ' + esc(h.owner.hy) + '</p>' +
         '<label class="field"><span>Telegram ID</span><input type="text" inputmode="numeric" data-id="' + h.id + '" value="' + esc(ids[h.id] || '') + '" placeholder="օր․՝ 123456789"></label>' +
-        '<div class="setup__row">' + opts + '<button type="button" class="btn btn--small" data-test="' + h.id + '">Ուղարկել թեստ</button></div>' +
+        '<div class="setup__row">' + opts + '<button type="button" class="btn btn--small" data-test="' + h.id + '">Ստուգել կապը</button></div>' +
       '</div>';
     }).join('');
   }
@@ -630,8 +630,8 @@
     var ids = chatIds(), token = store.get('garni.token', '');
     var linked = HOUSES.filter(function (h) { return ids[h.id]; }).length;
     $('#setup-mode').textContent = token && linked
-      ? 'Իրական․ հայտերը կգնան Telegram-ով (' + linked + ' / ' + HOUSES.length + ' տուն միացված է)։ Չմիացված տները կպատասխանեն ավտոմատ։'
-      : 'Սիմուլյացիա․ տները պատասխանում են ավտոմատ։ Իրականի համար մուտքագրիր token և ID-ներ։';
+      ? 'Միացված է․ հայտերը գնում են Telegram-ով (' + linked + ' / ' + HOUSES.length + ' տուն)։'
+      : 'Telegram-ը միացված չէ։ Մուտքագրիր token-ը և տնատերերի ID-ները։';
   }
 
   $('#screen-setup').addEventListener('click', function (ev) {
@@ -641,8 +641,8 @@
     var hid = b.getAttribute('data-test');
     var id = chatIds()[hid];
     if (!id) { $('#ids-out').textContent = 'Նախ գրիր ID-ն։'; return; }
-    tg.call('sendMessage', { chat_id: id, text: '✅ Թեստ «Ազատ է» դեմոյից։ Ամեն ինչ աշխատում է։' })
-      .then(function () { $('#ids-out').textContent = 'Թեստը ուղարկվեց։'; })
+    tg.call('sendMessage', { chat_id: id, text: '✅ Կապը հաստատված է։ «Ազատ է» համակարգի նոր հայտերը կգան այստեղ։' })
+      .then(function () { $('#ids-out').textContent = 'Հաղորդագրությունն ուղարկվեց։'; })
       .catch(function (e) { $('#ids-out').textContent = 'Չհասավ․ ' + e.message + ' (տնատերը գրե՞լ է /start)'; });
   });
 
