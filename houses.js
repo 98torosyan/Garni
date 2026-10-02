@@ -1,5 +1,5 @@
 /*
-  Ազատ է — դեմոյի տվյալներ
+  Ազատ է — տների տվյալներ
   -------------------------------------------------
   chatId — տնատիրոջ Telegram ID-ն (թվեր)։ Կարող ես գրել այստեղ,
   կամ թողնել դատարկ և կցել կարգավորումների էջից (կայքի հասցե + #setup)։
@@ -15,8 +15,8 @@ window.GARNI_HOUSES = [
     id: 'tsiran',
     chatId: '',
     name: { hy: 'Ծիրանի տուն', ru: 'Абрикосовый дом', en: 'Apricot House' },
-    owner: { hy: 'Արամ', ru: 'Арам', en: 'Aram' },
-    phone: '+374 91 000 001',
+    owner: { hy: 'Մանուկ', ru: 'Манук', en: 'Manuk' },
+    phone: '+374 99 067 506',
     price: 40000,
     capacity: 8,
     allowMen: true,
@@ -29,8 +29,8 @@ window.GARNI_HOUSES = [
     id: 'dzor',
     chatId: '',
     name: { hy: 'Ձորի պատշգամբ', ru: 'Терраса над ущельем', en: 'Gorge Terrace' },
-    owner: { hy: 'Դավիթ', ru: 'Давид', en: 'Davit' },
-    phone: '+374 93 000 002',
+    owner: { hy: 'Կարեն', ru: 'Карен', en: 'Karen' },
+    phone: '+374 77 487 757',
     price: 70000,
     capacity: 14,
     allowMen: true,
