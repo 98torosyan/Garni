@@ -13,7 +13,7 @@ window.GARNI_CONFIG = {
 window.GARNI_HOUSES = [
   {
     id: 'tsiran',
-    chatId: '',
+    chatId: '1308614030',
     name: { hy: 'Ծիրանի տուն', ru: 'Абрикосовый дом', en: 'Apricot House' },
     owner: { hy: 'Մանուկ', ru: 'Манук', en: 'Manuk' },
     phone: '+374 99 067 506',
@@ -27,7 +27,7 @@ window.GARNI_HOUSES = [
   },
   {
     id: 'dzor',
-    chatId: '',
+    chatId: '6803966973',
     name: { hy: 'Ձորի պատշգամբ', ru: 'Терраса над ущельем', en: 'Gorge Terrace' },
     owner: { hy: 'Կարեն', ru: 'Карен', en: 'Karen' },
     phone: '+374 77 487 757',
