@@ -23,7 +23,7 @@ window.GARNI_HOUSES = [
     place: { hy: 'Տաճարից 700 մ', ru: '700 м от храма', en: '700 m from the temple' },
     features: ['yard', 'bbq', 'parking', 'wifi'],
     note: 'ready',
-    photos: ['images/tsiran-1.jpg']
+    photos: ['tsiran-1.jpg']
   },
   {
     id: 'dzor',
@@ -37,6 +37,6 @@ window.GARNI_HOUSES = [
     place: { hy: 'Ձորի տեսարանով', ru: 'С видом на ущелье', en: 'Overlooking the gorge' },
     features: ['terrace', 'sauna', 'bbq', 'breakfast', 'parking'],
     note: 'view',
-    photos: ['images/dzor-2.jpg', 'images/dzor-1.jpg']
+    photos: ['dzor-2.jpg', 'dzor-1.jpg']
   }
 ];
